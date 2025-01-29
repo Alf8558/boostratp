@@ -1,0 +1,1007 @@
+/* ==========================================================================
+   Tienda Online - Hoja de Estilos Principal
+   Versión: 1.0
+   Autor: [Tu Nombre]
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Variables y Configuración Base
+   ========================================================================== */
+:root {
+    /* Paleta de colores */
+    --primary-color: #b7844b;
+    --secondary-color: #141414;
+    --accent-color: #333333;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    
+    /* Colores de interacción */
+    --button-color: #000000;
+    --button-hover-color: #333333;
+    --link-hover-color: #ff0000;
+    
+    /* Tipografía */
+    --font-family-primary: 'Roboto', sans-serif;
+    --font-family-secondary: 'Georgia', serif;
+    
+    /* Tamaños de fuente */
+    --base-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --large-font-size: 1.25rem;
+    --xl-font-size: 1.5rem;
+    
+    /* Espaciado */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    
+    /* Bordes y sombras */
+    --border-radius: 4px;
+    --border-radius-lg: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   2. Reset y Estilos Base
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--base-font-size);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   3. Layout y Componentes Header
+   ========================================================================== */
+header {
+    position: relative;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: var(--spacing-md);
+    box-shadow: var(--box-shadow);
+}
+
+.header-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo-section {
+    justify-self: center;
+}
+
+.logo img {
+    max-width: 6rem;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+    -webkit-transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+}
+
+/* Navegación */
+.nav-section {
+    display: flex;
+    align-items: center;
+}
+
+.left-nav {
+    justify-content: flex-start;
+}
+
+.right-nav {
+    justify-content: flex-end;
+}
+
+.custom-navbar {
+    padding: 0;
+    background-color: transparent !important;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--secondary-color) !important;
+    font-weight: 500;
+    font-size: var(--large-font-size);
+    padding: var(--spacing-sm) var(--spacing-md);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--link-hover-color) !important;
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.dropdown-item {
+    color: var(--secondary-color);
+    font-size: var(--base-font-size);
+    padding: var(--spacing-sm) var(--spacing-md);
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Opciones de usuario */
+.user-options {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-left: auto;
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-lg);
+    z-index: 1050;
+}
+
+.user-options .nav-link {
+    color: var(--secondary-color);
+    font-size: var(--base-font-size);
+    padding: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.user-options .nav-link:hover {
+    color: var(--link-hover-color);
+    transform: scale(1.1);
+}
+
+/* Botón hamburguesa */
+.navbar-toggler {
+    border: none;
+    padding: var(--spacing-sm);
+    color: var(--secondary-color);
+    font-size: var(--xl-font-size);
+    background: transparent;
+    cursor: pointer;
+}
+
+.navbar-toggler i {
+    font-size: var(--xl-font-size);
+}
+
+/* ==========================================================================
+   4. Media Queries
+   ========================================================================== */
+/* Móviles y tablets pequeñas */
+@media (max-width: 575.98px) {
+    :root {
+        --base-font-size: 0.875rem;
+        --large-font-size: 1.125rem;
+        --xl-font-size: 1.25rem;
+    }
+
+    .header-container {
+        grid-template-columns: auto 1fr auto;
+        padding: var(--spacing-sm);
+    }
+
+    .logo img {
+        max-width: 4rem;
+    }
+
+    .user-options {
+        position: static;
+        margin: 0;
+    }
+}
+
+/* Tablets */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .header-container {
+        grid-template-columns: auto 1fr auto;
+    }
+
+    .logo img {
+        max-width: 5rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ==========================================================================
+   5. Utilidades y Helpers
+   ========================================================================== */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+/* ==========================================================================
+   6. Animaciones
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+    -webkit-animation: fadeIn 0.3s ease-in;
+}
+
+/* ==========================================================================
+   Sección de Categorías
+   Estilos para la sección de categorías y sus tarjetas
+   ========================================================================== */
+.categoria {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    border: 2px solid black;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.categoria img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 13px;
+}
+
+.categoria .titulo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 13px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    transition: transform 0.6s;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.categoria:hover img {
+    transform: rotateY(180deg);
+}
+
+.categoria:hover .titulo {
+    transform: rotateY(0deg);
+}
+
+.categorias {
+    text-align: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.categorias h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.categorias-grid {
+    display: grid;
+    padding: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 575.98px) {
+    .categorias-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 2rem;
+    }
+
+    .categoria {
+        width: 280px;
+        height: 180px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .categorias-grid {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        gap: 2rem;
+    }
+
+    .categoria {
+        width: 280px;
+        height: 180px;
+    }
+}
+
+@media (min-width: 992px) {
+    .categorias-grid {
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        gap: 2rem;
+    }
+}
+
+/* ==========================================================================
+   Sección de Opiniones
+   Estilos para el carrusel de opiniones y sus tarjetas
+   ========================================================================== */
+.opiniones {
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+.opiniones h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.opinion {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.opinion-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.opinion h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.opinion-texto {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.estrellas {
+    color: #ffd700;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    padding: 1.5rem;
+}
+
+.carousel-indicators {
+    bottom: -50px;
+}
+
+.carousel-indicators button {
+    background-color: #999;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.carousel-indicators button.active {
+    background-color: #333;
+}
+
+@media (max-width: 575.98px) {
+    .opinion {
+        max-width: 95%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .opinion {
+        max-width: 85%;
+    }
+}
+
+@media (min-width: 992px) {
+    .opinion {
+        max-width: 70%;
+    }
+}
+
+/* ==========================================================================
+   Sección de Ofertas
+   Estilos para la sección de ofertas y suscripción
+   ========================================================================== */
+.ofertas h2,
+.ofertas p {
+    text-align: center;
+}
+
+#subscribe-form {
+    display: grid;
+    grid-template-columns: auto;
+    justify-items: center;
+    margin-top: 1.25rem;
+}
+
+#subscribe-form h2 {
+    text-align: center;
+}
+
+#subscribe-form input[type="email"] {
+    padding: 0.62rem;
+    border: 0.12rem solid var(--secondary-color);
+    border-radius: 0.30rem;
+    margin-bottom: 0.62rem;
+    width: 80%;
+    max-width: 18rem;
+}
+
+button {
+    padding: 0.625rem 1.25rem;
+    background-color: var(--button-color);
+    color: rgba(255, 0, 0, 0.993);
+    border: none;
+    border-radius: 0.31rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* ==========================================================================
+   Redes Sociales
+   Estilos para los iconos y enlaces de redes sociales
+   ========================================================================== */
+.redes-sociales-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.redes-sociales-container h2 {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.redes-sociales a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.redes-sociales a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 575.98px) {
+    .redes-sociales {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .redes-sociales a {
+        font-size: 1.2rem;
+    }
+}
+
+/* ==========================================================================
+   Sección Hero
+   Estilos para la sección principal de bienvenida
+   ========================================================================== */
+.hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f8f9fa;
+}
+
+.hero h1 {
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.hero p {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Footer
+   Estilos para el pie de página y sus elementos
+   ========================================================================== */
+footer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.footer-section {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.footer-section a, 
+.redes-sociales a {
+    color: var(--secondary-color);
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.footer-section a:hover, 
+.redes-sociales a:hover {
+    transform: scale(1.25);
+}
+
+@media (max-width: 991.98px) {
+    footer {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5em;
+    }
+}
+
+@media (max-width: 575.98px) {
+    footer {
+        grid-template-columns: 1fr;
+        gap: 1em;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-top: 0.5em;
+    }
+}
+
+/* ==========================================================================
+   Media Queries
+   Estilos responsivos para diferentes tamaños de pantalla
+   ========================================================================== */
+@media (max-width: 575.98px) {
+    .categorias-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .opinion {
+        max-width: 95%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .categorias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .opinion {
+        max-width: 85%;
+    }
+
+    .header-container {
+        grid-template-columns: auto 1fr auto;
+        padding: 0.5rem 1rem;
+    }
+
+    .logo-section {
+        grid-column: 1 / -1;
+        justify-self: center;
+        margin: 0 auto;
+    }
+
+    .user-options {
+        position: absolute;
+        right: 1rem;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+    }
+}
+
+@media (min-width: 992px) {
+    .categorias-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .opinion {
+        max-width: 70%;
+    }
+
+    .header-container {
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .navbar-collapse {
+        display: flex !important;
+    }
+}
+
+/* ==========================================================================
+   Estilos del Modal de Login/Registro
+   ========================================================================== */
+#loginModal .modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+#loginModal .modal-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 1.5rem;
+}
+
+#loginModal .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+#loginModal .nav-tabs {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+#loginModal .nav-tabs .nav-link {
+    color: var(--secondary-color);
+    border: none;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#loginModal .nav-tabs .nav-link:hover {
+    color: var(--primary-color);
+}
+
+#loginModal .nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    border: none;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+#loginModal .modal-body {
+    padding: 2rem;
+}
+
+#loginModal .form-label {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+#loginModal .form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+#loginModal .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(183, 132, 75, 0.25);
+}
+
+#loginModal .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.75rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#loginModal .btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+#loginModal .text-decoration-none {
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+#loginModal .text-decoration-none:hover {
+    color: var(--secondary-color);
+}
+
+#loginModal .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+@media (max-width: 575.98px) {
+    #loginModal .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    #loginModal .modal-body {
+        padding: 1rem;
+    }
+
+    #loginModal .nav-tabs .nav-link {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* ==========================================================================
+   Estilos del Modal del Carrito
+   ========================================================================== */
+#cartModal .modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+#cartModal .modal-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 1.5rem;
+}
+
+#cartModal .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.cart-item {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    background-color: #e9ecef;
+    transform: translateX(5px);
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item-details h6 {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls .btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+.cart-summary {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+
+.cart-summary hr {
+    border-color: var(--primary-color);
+    opacity: 0.2;
+}
+
+.discount-code .input-group {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.discount-code .form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px 0 0 8px;
+    padding: 0.75rem;
+}
+
+.discount-code .btn-outline-primary {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.discount-code .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#cartModal .modal-footer {
+    border-top: none;
+    padding: 1.5rem;
+}
+
+#cartModal .btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#cartModal .btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#cartModal .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#cartModal .btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 767.98px) {
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cart-item-details {
+        margin-top: 1rem;
+        margin-left: 0 !important;
+    }
+
+    .cart-item-price-remove {
+        margin-top: 1rem;
+    }
+
+    .quantity-controls {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #cartModal .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    .cart-item-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .cart-summary {
+        padding: 1rem;
+    }
+
+    #cartModal .modal-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #cartModal .btn {
+        width: 100%;
+    }
+}
